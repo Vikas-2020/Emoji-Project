@@ -150,15 +150,11 @@ input:focus {
 /* Responsive Design */
 @media screen and (max-width: 768px) {
     .btn {
-        width: 45%;
+        width: 30%;
     }
 
     input {
         width: 80%;
-    }
-
-    form {
-        flex-direction: column;
     }
 }
 
@@ -170,6 +166,26 @@ input:focus {
 @media screen and (max-width:576px){
     h1{
         font-size: 3vw;
+    }
+    .btn{
+        height: 2rem;
+        font-size: 13px;
+    }
+    input{
+        height: 2rem;
+        font-size: 13px;
+    }
+    input::placeholder{
+        font-size: 13px;
+    }
+    #display{
+        padding: 0.5rem;
+    }
+    .parent{
+        font-size: 1.5rem;
+    }
+    #wrapper{
+        padding: 1rem;
     }
 }
 @media screen and (max-width:390px){
