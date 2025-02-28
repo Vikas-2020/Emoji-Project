@@ -51,8 +51,32 @@ function displayEmoji(arr) {
     const parent = document.createElement("span");
     parent.classList.add("parent");
     parent.innerText = obj.emoji;
+    // Add click event to copy emoji and show popup
+    parent.addEventListener("click", () => copyToClipboard(obj.emoji, parent));
     fragment.append(parent);
   });
 
   displayDiv.append(fragment);
+}
+
+function copyToClipboard(emoji, element) {
+    navigator.clipboard.writeText(emoji)
+        .then(() => {
+            showPopup("✅ Emoji Copied!");
+        })
+        .catch((err) => console.error("Failed to copy:", err));
+}
+
+// Function to show a popup message
+function showPopup(message) {
+    const popup = document.createElement("div");
+    popup.classList.add("popup");
+    popup.innerText = message;
+
+    document.body.appendChild(popup);
+
+    // Remove popup after 1.5 seconds
+    setTimeout(() => {
+        popup.remove();
+    }, 1500);
 }
